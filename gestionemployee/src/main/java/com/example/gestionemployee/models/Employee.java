@@ -1,15 +1,13 @@
 package com.example.gestionemployee.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +25,17 @@ public class Employee {
     private LocalDate birthdate;
     @Enumerated
     private EmployeeRole role;
+    @OneToOne
+    @JoinColumn(name="adress_id")
+    private Adress adress;
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    private Department department;
+    @ManyToMany
+    @JoinTable(
+            name="employee_mission",
+            joinColumns = @JoinColumn(name="employee_id"),
+            inverseJoinColumns = @JoinColumn(name="mission_id")
+    )
+    private List<Mission> missions;
 }
