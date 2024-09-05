@@ -12,8 +12,8 @@ import java.util.List;
 public class AdressService {
     @Autowired
     Adressrepository adressrepository;
-    public Adress addmission(Adress adress){return adressrepository.save(adress);}
-    public void deletemission(Integer id){
+    public Adress addadress(Adress adress){return adressrepository.save(adress);}
+    public void deleteadress(Integer id){
         adressrepository.deleteById(id);
     }
     public List<Adress> getall1(){
