@@ -3,6 +3,7 @@ class Home extends React.Component{
    
     render(){
         return <div>
+            <h1>hello fabiano caruana</h1>
             <input type="text" placeholder="name" ></input><br></br>
             welcome to home page and terminale<br></br>
             <textarea ></textarea><br></br>

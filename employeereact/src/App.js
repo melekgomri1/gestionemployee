@@ -1,15 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
-import {x,name} from'./Test';
+import About from './About';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <input type="text" placeholder="name" ></input>
-     <h1 style={{color:"blue",fontSize:"100px"}}>Hello world</h1>
-     <h1>{x} and {name}</h1>
-     <Home/>
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
