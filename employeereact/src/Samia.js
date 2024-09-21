@@ -7,9 +7,15 @@ class Samia extends React.Component{
         age:12,
         x:0,
     }
-   
+   componentDidMount(){
+    console.log("componentDidMount");
+   }
+   componentDidUpdate(prevProps,prevState,snapshot){
+    console.log(prevState);
+    console.log("componentDidUpdate");
+   }
     render(){
-        console.log(this.props);
+        console.log("render");;
         return <div>
             {this.state.name}<br></br>
             {this.state.lastename}<br></br>
