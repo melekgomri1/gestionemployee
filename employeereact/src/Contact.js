@@ -1,20 +1,37 @@
-import React,{Component} from 'react';
-class Contact extends React.Component{
-    constructor(props){
+import axios from 'axios';
+import React, { Component } from 'react';
+
+class Contact extends React.Component {
+    constructor(props) {
         super(props);
-        console.log("constructor");
+        this.state = {
+            contact: [] // Initialisation correcte de l'état "contact"
+        };
     }
-    componentDidMount(){
-        console.log("componentdidmount")
+
+    componentDidMount() {
+        // Correction : accès à "response.data" pour récupérer les données de l'API
+        axios.get('http://localhost:3100/contact/getall')
+            .then((response) => {
+                // S'assurer que les données sont bien dans "response.data"
+                this.setState({ contact: response.data });
+            })
+            .catch((error) => console.error(error)); // Gestion des erreurs
     }
-   
-    render(){
-        console.log("cc")
-        return <div>
-            
-            <h1>samia w kamel l mba3bsin</h1>
-           
-        </div>
+
+    render() {
+        return (
+            <div>
+                {this.state.contact.map((item, key) => (
+                    <ul key={key}>
+                        <li>{item.name}</li>
+                        <li>{item.lastname}</li>
+                        <li>{item.numtelephone}</li>
+                    </ul>
+                ))}
+            </div>
+        );
     }
 }
-export default Contact
+
+export default Contact;
