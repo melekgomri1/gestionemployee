@@ -1,32 +1,64 @@
-import React,{Component} from 'react';
+import React, { useState } from 'react';
 import Kamel from './Kamel';
-class Samia extends React.Component{
-    state={
-        name:"melek",
-        lastename:"gomri",
-        age:12,
-        x:0,
-    }
-   componentDidMount(){
-    console.log("componentDidMount");
-   }
-   componentDidUpdate(prevProps,prevState,snapshot){
-    console.log(prevState);
-    console.log("componentDidUpdate");
-   }
-    render(){
-        console.log("render");;
-        return <div>
-            {this.state.name}<br></br>
-            {this.state.lastename}<br></br>
-            {this.state.age}<br></br>
-            {this.state.x}<br></br>
-            <button onClick={()=>{this.setState({x:this.state.x+1})}}>Increment</button><br></br>
-            <button onClick={()=>{this.setState({x:this.state.x-1})}}>Decrement</button>
-            
-            <h1>Samia tajourya hhhh</h1>
-            <Kamel data={this.state}/>  
-        </div>
-    }
+
+function Samia() {
+  // Déclare les états pour les champs du formulaire
+  const [name, setName] = useState('melek');
+  const [lastname, setLastname] = useState('gomri');
+  const [age, setAge] = useState(12);
+  const [x, setX] = useState(0);
+
+  // Fonction pour gérer la soumission du formulaire
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Nom: ${name}, Prénom: ${lastname}, Âge: ${age}`);
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>Nom:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Entrez votre nom"
+        /><br />
+        
+        <label>Prénom:</label>
+        <input
+          type="text"
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
+          placeholder="Entrez votre prénom"
+        /><br />
+        
+        <label>Âge:</label>
+        <input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(Number(e.target.value))}
+          placeholder="Entrez votre âge"
+        /><br />
+        
+        <button type="submit">Soumettre</button>
+      </form>
+      
+      <div>
+        <h3>État actuel :</h3>
+        Nom: {name}<br />
+        Prénom: {lastname}<br />
+        Âge: {age}<br />
+        x: {x}<br />
+        
+        <button onClick={() => setX(x + 1)}>Increment</button><br />
+        <button onClick={() => setX(x - 1)}>Decrement</button>
+      </div>
+
+      <h1>Samia tajourya hhhh</h1>
+      <Kamel data={{ name, lastname, age, x }} />
+    </div>
+  );
 }
-export default Samia
+
+export default Samia;
