@@ -17,8 +17,13 @@ class Contact extends React.Component {
   componentDidMount() {
     // Fetch contacts when the component mounts
     this.fetchContacts(); 
+    this.fetchusercount();
   }
-
+fetchusercount=()=>{
+  axios.get('http://localhost:3100/utilisateur/count').then((response)=>{
+    this.setState({usercount:response.data.count});
+  }).catch((error)=>console.error(error));
+}
   fetchContacts = () => {
     axios.get('http://localhost:3100/contact/getall')
       .then((response) => {
@@ -85,6 +90,7 @@ class Contact extends React.Component {
     return (
       <div>
         {/* Form for adding/updating contact */}
+        <h2>Total Contacts :{this.state.usercount}</h2>
         <h3>{this.state.editingContactId ? 'Edit Contact' : 'Add Contact'}</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
