@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Kamel(props) {  // Add 'props' as a parameter
     const navigate = useNavigate();
+   
 
     const handleClick = () => {
         navigate('/about');
