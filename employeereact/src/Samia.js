@@ -6,7 +6,7 @@ function Samia() {
   const [name, setName] = useState('melek');
   const [lastname, setLastname] = useState('gomri');
   const [age, setAge] = useState(12);
-  const [x, setX] = useState(0);
+  const [x] = useState(0);
 
   // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
@@ -51,8 +51,7 @@ function Samia() {
         Âge: {age}<br />
         x: {x}<br />
         
-        <button onClick={() => setX(x + 1)}>Increment</button><br />
-        <button onClick={() => setX(x - 1)}>Decrement</button>
+       
       </div>
 
       <h1>Samia tajourya hhhh</h1>

@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 
 class Contact extends React.Component {
+  constructor(props){
+    super(props);
+  }
   state = {
     contacts: [],
     contact: {
@@ -144,6 +147,7 @@ fetchusercount=()=>{
             ))}
           </tbody>
         </table>
+    
       </div>
     );
   }
