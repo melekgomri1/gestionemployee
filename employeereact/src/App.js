@@ -5,6 +5,7 @@ import { BrowserRouter, Link, NavLink, Route, Routes } from 'react-router-dom';
 import Samia from './Samia';
 import Contact from './Contact';
 import Kamel from './Kamel';
+import Melek from './Melek';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <NavLink to="/samia" activeClassName="active">Samiaa</NavLink>
           <NavLink to="/samia/kamel" activeClassName="active1">Kamel</NavLink>
           <NavLink to="/contact" activeClassName="active">Contact</NavLink>
+          <NavLink to="/melek" activeClassName="active">melek</NavLink>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,6 +25,7 @@ function App() {
           <Route path="/samia" element={<Samia />} />
           <Route path="/samia/kamel" element={<Kamel />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/melek" element={<Melek />} />
         </Routes>
       </BrowserRouter>
     </div>
