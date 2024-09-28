@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Kamel(props) {
@@ -16,9 +16,11 @@ function Kamel(props) {
     useEffect(() => {
         console.log("welcome tek-up");
     });
-
+const first=useRef()
     return (
         <div>
+            <input ref={first}></input>
+            <button onClick={()=>console.log(first.current.value)}>Click me</button>
             {/* Access props if needed */}
             <h1>Kamel Gomriaa</h1>
             <h1>{count}</h1>
